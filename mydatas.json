@@ -1,0 +1,66 @@
+{
+  "projects":[
+    {
+      "id":1,
+      "img480":"/imgs/film480.jpg",
+      "img1024":"/imgs/film1024.jpg",
+      "img1920":"/imgs/film1920.jpg",
+      "img2560":"/imgs/film2560.jpg",
+      "alt":"Porta400",
+      "color":"yellow",
+      "title":"Porta400"
+    },
+    {
+      "id":2,
+      "img480":"/imgs/icecream480.jpg",
+      "img1024":"/imgs/icecream1024.jpg",
+      "img1920":"/imgs/icecream1920.jpg",
+      "img2560":"/imgs/icecream2560.jpg",
+      "alt":"Ice Cream",
+      "color":"yellow",
+      "title":"Ice Cream"
+    },
+    {
+      "id":3,
+      "img480":"/imgs/pineapple480.jpg",
+      "img1024":"/imgs/pineapple1024.jpg",
+      "img1920":"/imgs/pineapple1920.jpg",
+      "img2560":"/imgs/pineapple2560.jpg",
+      "alt":"Pineapple",
+      "color":"blue",
+      "title":"Pineapple"
+    },
+    {
+      "id":4,
+      "img480":"/imgs/banana480.jpg",
+      "img1024":"/imgs/banana1024.jpg",
+      "img1920":"/imgs/banana1920.jpg",
+      "img2560":"/imgs/banana2560.jpg",
+      "alt":"Banana",
+      "color":"pink",
+      "title":"Banana"
+    }
+  ],
+  "journals":[    
+    {
+      "id":1,
+      "title":"About Typography",
+      "excerpt":"Font face, vertical rythm, readability, this long fake text should flow."
+    },
+    {
+      "id":2,
+      "title":"macOS development environment",
+      "excerpt":"Get up and running with a fresh macOS Catalina install"
+    },
+    {
+      "id":3,
+      "title":"VueJS for your next project",
+      "excerpt":"Vue (pronounced /vjuː/, like view) is a progressive framework for building user interfaces."
+    },
+    {
+      "id":4,
+      "title":"Gridsome with Forestry CMS",
+      "excerpt":"Get up and running with Forestry CMS, a git-backed headless CMS with a slick editing interface."
+    }
+  ]
+}
