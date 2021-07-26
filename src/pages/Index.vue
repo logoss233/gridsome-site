@@ -2,10 +2,9 @@
   <Layout>
     <div class="container">
       <div class="hero">
-        <h1 class="hero-title">Simplicity. Aesthetics. Value.</h1>
+        <h1 class="hero-title">{{global.title}}</h1>
         <h2 class="hero-subtitle">
-          Hi there, I'm an independent Digital Designer &amp; Art Director
-          focused on digital design for brands that like to have fun.
+          {{global.subtitle}}
         </h2>
       </div>
       <!-- projects -->
@@ -107,6 +106,14 @@ query{
       }
     }
   }
+  globals:allStrapiGlobal{
+    edges{
+      node{
+        title
+        subtitle
+      }
+    }
+  }
 }
 </page-query>
 
@@ -124,13 +131,15 @@ export default {
     },
     journals(){
       return this.$page.journals.edges.map(edge=>edge.node)
+    },
+    global(){
+      return this.$page.globals.edges[0].node
     }
   },
   methods:{
     srcSet(project){
       return `${this.GRIDSOME_API_URL+project.img480.url} 480w, ${this.GRIDSOME_API_URL+project.img1024.url} 1024w, ${this.GRIDSOME_API_URL+project.img1920.url} 1920w, ${this.GRIDSOME_API_URL+project.img2560.url} 2560w`
     },
-    
   }
 };
 </script>

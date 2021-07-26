@@ -3,7 +3,7 @@
     <div data-v-da896d1e="" class="container">
       <div data-v-da896d1e="" class="journal-hero">
         <h1 data-v-da896d1e="" class="journal-header">
-          a wise person once said...
+          {{global.journalHeader}}
         </h1>
       </div>
     </div>
@@ -37,6 +37,13 @@ query{
       }
     }
   }
+  globals:allStrapiGlobal{
+    edges{
+      node{
+        journalHeader
+      }
+    }
+  }
 }
 </page-query>
 
@@ -50,6 +57,9 @@ export default {
   computed: {
     journals() {
       return this.$page.journals.edges.map((edge) => edge.node);
+    },
+    global(){
+      return this.$page.globals.edges[0].node
     }
   },
 };

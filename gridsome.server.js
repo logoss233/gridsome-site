@@ -4,10 +4,10 @@
 
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop
-const {projects,journals}=require('./mydatas.json')
+//const {projects,journals}=require('./mydatas.json')
 // console.log('projects', projects)
 
-const axios=require('axios')
+//const axios=require('axios')
 
 module.exports = function (api) {
   api.loadSource( ({ addCollection }) => {
@@ -18,10 +18,10 @@ module.exports = function (api) {
     //   projectCollection.addNode(item)
     // })
 
-    const journalCollection=addCollection('Journal')
-    journals.forEach(item=>{
-      journalCollection.addNode(item)
-    })
+    // const journalCollection=addCollection('Journal')
+    // journals.forEach(item=>{
+    //   journalCollection.addNode(item)
+    // })
 
   })
 
