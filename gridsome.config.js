@@ -9,7 +9,7 @@ module.exports = {
   siteDescription:'大前端',
   plugins: [],
   templates:{
-    Journal:[
+    StrapiJournal:[
       {
         path:'/journals/:id',
         component:'./src/templates/Journal.vue' 
