@@ -28,7 +28,7 @@ module.exports = {
       options: {
         apiURL: process.env.GRIDSOME_API_URL,
         queryLimit: 1000, // Defaults to 100
-        contentTypes: ['project'],
+        contentTypes: ['project','journal'],
         // singleTypes: ['impressum'],
         // Possibility to login with a Strapi user,
         // when content types are not publicly available (optional).

@@ -56,8 +56,8 @@
       </div>
       <div class="latest-journals" data-v-460714ac="">
         <div class="container" data-v-460714ac="">
-          <a
-            href="/journal/gridsome-forestry-cms/"
+          <g-link
+            :to="`/journals/${journal.id}`"
             class="journal"
             data-v-460714ac=""
             v-for="journal in journals"
@@ -65,7 +65,7 @@
           >
             <h3 class="journal-title" data-v-460714ac="">
               {{journal.title}}
-            </h3> </a
+            </h3> </g-link
           >
         </div>
       </div>
@@ -99,7 +99,7 @@ query{
       }
     }
   }
-  journals:allJournal{
+  journals:allStrapiJournal{
     edges{
       node{
 				id

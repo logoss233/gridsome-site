@@ -14,7 +14,6 @@
       <footer class="footer" data-v-07acb5f8="">
       <div class="container" data-v-07acb5f8=""><span data-v-07acb5f8="">Copyright © 2021</span></div>
     </footer>
-  
   </div>
 
 

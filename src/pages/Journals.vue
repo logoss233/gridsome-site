@@ -7,9 +7,9 @@
         </h1>
       </div>
     </div>
-    <a
+    <g-link
       data-v-da896d1e=""
-      href="/journal/gridsome-forestry-cms/"
+      :to="`/journals/${journal.id}`"
       class="journal-post"
       v-for="journal in journals"
       :key="journal.id"
@@ -22,13 +22,13 @@
           {{journal.excerpt}}
         </p>
       </div>
-    </a>
+    </g-link>
   </Layout>
 </template>
 
 <page-query>
 query{
-  journals:allJournal{
+  journals:allStrapiJournal{
     edges{
       node{
 				id
@@ -50,7 +50,7 @@ export default {
   computed: {
     journals() {
       return this.$page.journals.edges.map((edge) => edge.node);
-    },
+    }
   },
 };
 </script>

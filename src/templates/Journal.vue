@@ -6,36 +6,15 @@
           <h1 data-v-2a0eef53="" class="journal-title">Gridsome with Forestry CMS</h1>
           <div data-v-2a0eef53="" class="journal-meta">
             <div data-v-2a0eef53="" class="journal-author"><span data-v-2a0eef53="" class="label">Author</span><span
-                data-v-2a0eef53="" class="author-name">Nichlas W. Andersen</span></div>
+                data-v-2a0eef53="" class="author-name">{{journal.writer.name}}</span></div>
             <div data-v-2a0eef53="" class="journal-date"><span data-v-2a0eef53="" class="label">Date</span>
-              <div data-v-2a0eef53="">7. June 2019</div>
+              <div data-v-2a0eef53="">{{dayStr}}</div>
             </div>
             <div data-v-2a0eef53="" class="journal-time"><span data-v-2a0eef53="" class="label">Time</span><span
-                data-v-2a0eef53="">1 min read</span></div>
+                data-v-2a0eef53="">{{journal.time}} min read</span></div>
           </div>
         </div>
-        <div data-v-2a0eef53="" class="journal-content">
-          <h4 id="use-forestry-as-a-cms-for-gridsome"><a href="#use-forestry-as-a-cms-for-gridsome"
-              aria-hidden="true"><span class="icon icon-link"></span></a>Use Forestry as a CMS for Gridsome</h4>
-          <p><a href="https://forestry.io" target="_blank" rel="nofollow noopener noreferrer">Forestry</a> is a
-            git-based headless CMS that allows editorial teams to work on Jamstack sites.</p>
-          <p>It comes with a slick user interface that empowers editors to edit CommmonMark, YAML, and JSON files.</p>
-          <p>Forestry UI was designed by <strong>Nichlas W. Andersen</strong>.</p>
-          <p>You can import this starter to Forestry and start editing and creating posts or projects right away.</p>
-          <p>Forestry also comes with instant previews, for you to preview your content before publishing.</p>
-          <p>When you save content in <strong>Forestry</strong>, it's committed back to your Git repository. If you link
-            your repository to a service like <strong>Netlify</strong> or <strong>Vercel</strong>, on every push, your
-            site will be deployed over to a CDN network.</p>
-          <p>Enjoy the best development and user experience! 🚀</p>
-          <p><img class="g-image g-image--lazy g-image--loaded"
-              src="/assets/static/ian-dooley-281897-unsplash.42db587.4ee4f858cbb8392c2cc4019598c07dcd.jpg" width="2560"
-              data-srcset="/assets/static/ian-dooley-281897-unsplash.82a2fbd.4ee4f858cbb8392c2cc4019598c07dcd.jpg 480w, /assets/static/ian-dooley-281897-unsplash.cbab2cf.4ee4f858cbb8392c2cc4019598c07dcd.jpg 1024w, /assets/static/ian-dooley-281897-unsplash.2665e34.4ee4f858cbb8392c2cc4019598c07dcd.jpg 1920w, /assets/static/ian-dooley-281897-unsplash.42db587.4ee4f858cbb8392c2cc4019598c07dcd.jpg 2560w"
-              data-sizes="(max-width: 2560px) 100vw, 2560px"
-              data-src="/assets/static/ian-dooley-281897-unsplash.42db587.4ee4f858cbb8392c2cc4019598c07dcd.jpg"
-              srcset="/assets/static/ian-dooley-281897-unsplash.82a2fbd.4ee4f858cbb8392c2cc4019598c07dcd.jpg 480w, /assets/static/ian-dooley-281897-unsplash.cbab2cf.4ee4f858cbb8392c2cc4019598c07dcd.jpg 1024w, /assets/static/ian-dooley-281897-unsplash.2665e34.4ee4f858cbb8392c2cc4019598c07dcd.jpg 1920w, /assets/static/ian-dooley-281897-unsplash.42db587.4ee4f858cbb8392c2cc4019598c07dcd.jpg 2560w"
-              sizes="(max-width: 2560px) 100vw, 2560px"><noscript><img class="g-image g-image--lazy g-image--loaded"
-                src="/assets/static/ian-dooley-281897-unsplash.42db587.4ee4f858cbb8392c2cc4019598c07dcd.jpg"
-                width="2560"></noscript></p>
+        <div data-v-2a0eef53="" class="journal-content" v-html="content">
         </div>
       </div>
     </div>
@@ -44,9 +23,16 @@
 
 <page-query>
 query($id:ID!){
-  journal(id:$id){
+  journal:strapiJournal(id:$id){
     id
     title
+    excerpt
+    content
+    time
+    writer{
+      name
+    }
+    published_at
   }
 }
 
@@ -54,10 +40,35 @@ query($id:ID!){
 
 
 <script>
+import markdownIt from 'markdown-it'
+import dayjs from 'dayjs'
 export default {
   name:'Journal',
+  computed:{
+    journal(){
+      return this.$page.journal
+    },
+    content(){
+      const md=new markdownIt()
+      let html=''
+      try{
+        //给图片地址前面加上api地址
+        let c=this.journal.content
+        //![film1920.jpg](/uploads/film1920_2a2fb7effd.jpg)
+        const reg=/(!\[.+?\.jpg\]\()(\/.+?\.jpg\))/g
+        c=c.replace(reg,"$1"+this.GRIDSOME_API_URL+"$2")
+        html=md.render(c)
+      }catch(err){
+        console.log("处理markdown错误",err)
+      }
+      return html
+    },
+    dayStr(){
+      return dayjs(this.journal.published_at).format('DD.MMMM YYYY')
+    }
+  },
   metaInfo:{
-    
+    title:'Journal'
   }
 }
 </script>

@@ -96,8 +96,14 @@ export default {
       return `${this.GRIDSOME_API_URL+this.project.img480.url} 480w, ${this.GRIDSOME_API_URL+this.project.img1024.url} 1024w, ${this.GRIDSOME_API_URL+this.project.img1920.url} 1920w, ${this.GRIDSOME_API_URL+this.project.img2560.url} 2560w`
     },
     content(){
-      const md=new markdownIt()
-      const html=md.render(this.project.content)
+      let html=''
+      try{
+        const md=new markdownIt()
+        html=md.render(this.project.content)
+      }catch(err){
+        console.log(err)
+      }
+      
       return html
     }
   }
