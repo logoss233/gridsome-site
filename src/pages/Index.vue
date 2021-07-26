@@ -21,20 +21,10 @@
               :alt="project.alt"
               :src="GRIDSOME_API_URL+project.img2560.url"
               width="2560"
-              :data-src="GRIDSOME_API_URL+project.img2560.url"
-              :data-srcset="srcSet(project)"
-              data-sizes="(max-width: 2560px) 100vw, 2560px"
               class="thumbnail g-image g-image--lazy g-image--loaded"
               data-v-50cbff3e=""
-              :srcset="srcSet(project)"
               sizes="(max-width: 2560px) 100vw, 2560px"
-            /><noscript data-v-50cbff3e=""
-              ><img
-                :src="GRIDSOME_API_URL+project.img2560.url"
-                class="thumbnail g-image g-image--loaded"
-                width="2560"
-                :alt="project.alt"
-            /></noscript>
+            />
             <h3 class="project-title" data-v-50cbff3e="">{{project.title}}</h3>
             <div class="categories" data-v-50cbff3e="">
               <span
