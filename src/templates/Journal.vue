@@ -55,8 +55,8 @@ export default {
         //给图片地址前面加上api地址
         let c=this.journal.content
         //![film1920.jpg](/uploads/film1920_2a2fb7effd.jpg)
-        const reg=/(!\[.+?\.jpg\]\()(\/.+?\.jpg\))/g
-        c=c.replace(reg,"$1"+this.GRIDSOME_API_URL+"$2")
+        // const reg=/(!\[.+?\.jpg\]\()(\/.+?\.jpg\))/g
+        // c=c.replace(reg,"$1"+this.GRIDSOME_API_URL+"$2")
         html=md.render(c)
       }catch(err){
         console.log("处理markdown错误",err)
