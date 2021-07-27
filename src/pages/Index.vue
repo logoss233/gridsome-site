@@ -21,10 +21,20 @@
               :alt="project.alt"
               :src="project.img2560.url"
               width="2560"
+              :data-src="project.img2560.url"
+              :data-srcset="srcSet(project)"
+              data-sizes="(max-width: 2560px) 100vw, 2560px"
               class="thumbnail g-image g-image--lazy g-image--loaded"
               data-v-50cbff3e=""
+              :srcset="srcSet(project)"
               sizes="(max-width: 2560px) 100vw, 2560px"
-            />
+            /><noscript data-v-50cbff3e=""
+              ><img
+                :src="project.img2560.url"
+                class="thumbnail g-image g-image--loaded"
+                width="2560"
+                :alt="project.alt"
+            /></noscript>
             <h3 class="project-title" data-v-50cbff3e="">{{project.title}}</h3>
             <div class="categories" data-v-50cbff3e="">
               <span
@@ -128,7 +138,7 @@ export default {
   },
   methods:{
     srcSet(project){
-      return `${this.GRIDSOME_API_URL+project.img480.url} 480w, ${this.GRIDSOME_API_URL+project.img1024.url} 1024w, ${this.GRIDSOME_API_URL+project.img1920.url} 1920w, ${this.GRIDSOME_API_URL+project.img2560.url} 2560w`
+      return `${project.img480.url} 480w, ${project.img1024.url} 1024w, ${project.img1920.url} 1920w, ${project.img2560.url} 2560w`
     },
   }
 };
