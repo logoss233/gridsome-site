@@ -19,7 +19,7 @@
             data-v-50cbff3e=""
             ><img
               :alt="project.alt"
-              :src="GRIDSOME_API_URL+project.img2560.url"
+              :src="project.img2560.url"
               width="2560"
               class="thumbnail g-image g-image--lazy g-image--loaded"
               data-v-50cbff3e=""

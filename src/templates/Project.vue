@@ -28,7 +28,7 @@
         <p>
           <img
               :alt="project.alt"
-              :src="GRIDSOME_API_URL+project.img2560.url"
+              :src="project.img2560.url"
               width="2560"
     
               class=" g-image g-image--lazy g-image--loaded"

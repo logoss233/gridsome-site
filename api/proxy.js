@@ -4,12 +4,13 @@ module.exports = (req, res) => {
   let target = ''
 
   // 处理代理目标地址
-  // if (req.url.startsWith('/auth/local')) {
-  //   target = 'http://nan233.com:1337/'
-  // } else if (req.url.startsWith('/blogs')) {
+  if (req.url.startsWith('/contacts')) {
+    target = 'http://nan233.com:1337/'
+  } 
+  //else if (req.url.startsWith('/blogs')) {
   //   target = 'http://nan233.com:1337/'
   // } else
-   if (req.url.includes('/uploads')) {
+   else if (req.url.includes('/uploads')) {
     target = 'http://nan233.com:1337/'
   }
 

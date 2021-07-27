@@ -3,6 +3,9 @@
     { 
       "source": "/uploads/(.*)",
       "destination": "/api/proxy"
+    },{
+      "source": "/contacts",
+      "destination": "/api/proxy"
     }
   ]
 }

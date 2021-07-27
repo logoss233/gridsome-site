@@ -40,7 +40,7 @@ export default {
   methods:{
     async onSubmit(){
       try{
-        const {data}=await axios.post(this.GRIDSOME_API_URL+"/contacts",{
+        const {data}=await axios.post("/contacts",{
           name:this.name,
           email:this.email,
           message:this.message
